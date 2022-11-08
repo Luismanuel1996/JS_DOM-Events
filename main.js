@@ -80,10 +80,27 @@ parent3.appendChild(ul);
 
 
 function show() {
-    let div = document.createElement("div");
-    div.textContent = "Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user";
-    document.body.appendChild(div);
+    let modalContainer = document.createElement("div");
+    let modalCard = document.createElement("div");
+    let h2 = document.createElement("h2");
+    let p = document.createElement("p");
+    let button = document.createElement("button");
+
+    h2.textContent = "Modal Card";
+    p.textContent = "this is a modal, you want to exit please click the x button" ;
+    button.textContent = "X" ;
+
+    modalCard.append( h2, p, button);
+    modalCard.classList.add("modal-card");
+    modalContainer.id = "modal";
+    document.body.appendChild(modalContainer);
+    modalContainer.appendChild(modalCard)
+    button.addEventListener("click", () => {
+        document.body.removeChild(modalContainer)
+    })
 }
+
+
 
 
 let button = document.getElementById("btn");
